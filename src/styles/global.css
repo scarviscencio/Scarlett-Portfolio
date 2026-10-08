@@ -118,7 +118,96 @@ h2 em { color: var(--plum); }
 .project-time { margin-right: 65px; }
 .project-medical { margin-left: 92px; }
 .project-image-button { position: relative; display: block; width: 100%; padding: 0; border: 0; background: transparent; text-align: left; }
-.project-visual { position: relative; aspect-ratio: 1.95; overflow: hidden; display: grid; place-items: center; padding: 42px 80px 59px; }
+.project-visual {
+  position: relative;
+  aspect-ratio: 1.95;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 38px;
+  background: var(--paper);
+}
+.project-real-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(30, 40, 45, 0.12);
+  border-radius: 18px;
+  background: #f4f1e9;
+  box-shadow: 0 24px 60px rgba(45, 35, 55, 0.12);
+}
+
+.project-browser-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 38px;
+  padding: 0 14px;
+  background: #f8f7f2;
+  border-bottom: 1px solid rgba(30, 40, 45, 0.1);
+  color: #706482;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.browser-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.browser-dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.45;
+}
+
+.browser-url {
+  opacity: 0.7;
+}
+
+.browser-arrow {
+  font-size: 0.9rem;
+}
+
+.project-screenshot {
+  position: relative;
+  overflow: hidden;
+  background: #e8ebe4;
+}
+
+.project-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.project-image-button:hover .project-screenshot img {
+  transform: scale(1.025);
+}
+
+.project-empty {
+  display: grid;
+  place-items: center;
+  min-height: 420px;
+  background: #f4f1e9;
+  color: #706482;
+}
+
+.project-real-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: inherit;
+}
 .visual-time { background: #bdc9ac; }
 .visual-medical { background: #bbb2c4; }
 .project-visual > img { position: absolute; width: 100%; height: 100%; object-fit: contain; inset: 0; }
@@ -163,11 +252,258 @@ h2 em { color: var(--plum); }
 .visual-medical .concept-blocks > div { background: #eeeaf1; border-color: #e2dce7; }
 .visual-medical .abstract-icon { color: var(--lavender); font-size: 26px; }
 .visual-medical .skeleton-line, .visual-medical .mini-bars i { background: #ada0bb; }
-.visual-stamp { position: absolute; bottom: 48px; right: 23px; white-space: pre-line; color: #f7f7ef; font-family: var(--serif); font-size: 29px; font-style: italic; line-height: .98; transform: rotate(-7deg); }
-.visual-medical .visual-stamp { color: #483b52; left: 25px; right: auto; }
-.visual-placeholder { position: absolute; bottom: 18px; left: 24px; font-size: 9px; font-weight: 600; letter-spacing: .7px; color: #414e3b; display: flex; gap: 8px; align-items: center; }
-.visual-medical .visual-placeholder { color: #493f52; }
-.visual-placeholder > span { font-size: 15px; line-height: .5; }
+
+
+.web-browser {
+  position: relative;
+  width: 100%;
+  max-width: 790px;
+  background: var(--cream);
+  border: 1px solid #c8cbbb;
+  box-shadow: 18px 22px 35px #292e2918;
+  transform: rotate(-2deg);
+  transition: transform 500ms cubic-bezier(.2,.65,.3,1);
+}
+
+.web-browser-bar {
+  height: 28px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 12px;
+  border-bottom: 1px solid #d7dacd;
+  background: #e8e9df;
+  color: var(--muted);
+  font-size: 7px;
+  letter-spacing: .7px;
+}
+
+.browser-dots {
+  font-size: 6px;
+  letter-spacing: 2px;
+}
+
+.web-browser-bar > span:last-child {
+  justify-self: end;
+}
+
+.biotempak-page {
+  min-height: 270px;
+  padding: 20px 25px 17px;
+}
+
+.biotempak-nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 7px;
+  letter-spacing: .9px;
+}
+
+.biotempak-nav strong {
+  margin-right: auto;
+  font-size: 11px;
+  letter-spacing: -.2px;
+}
+
+.biotempak-hero {
+  min-height: 190px;
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.biotempak-hero > div:first-child > span {
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.biotempak-hero h3 {
+  margin-top: 10px;
+  font-family: var(--serif);
+  font-size: clamp(29px, 4vw, 48px);
+  line-height: .95;
+  font-weight: 400;
+  letter-spacing: -1.2px;
+}
+
+.biotempak-hero h3 em {
+  color: var(--plum);
+}
+
+.biotempak-product {
+  position: relative;
+  height: 150px;
+  display: grid;
+  place-items: center;
+}
+
+.product-shape {
+  width: 105px;
+  height: 135px;
+  background: var(--blue);
+  transform: rotate(7deg);
+  box-shadow: 13px 15px 0 var(--sage);
+}
+
+.product-shape::after {
+  content: '';
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  border: 1px solid var(--lime);
+  border-radius: 50%;
+  top: 37px;
+  left: 25px;
+}
+
+.biotempak-product > span {
+  position: absolute;
+  bottom: 2px;
+  right: 10px;
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.biotempak-footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #d0d4c7;
+  padding-top: 10px;
+  font-size: 7px;
+  letter-spacing: .8px;
+  color: var(--muted);
+}
+
+.visual-biotempak .visual-stamp {
+  right: 24px;
+  bottom: 47px;
+  color: var(--plum);
+  transform: rotate(7deg);
+}
+
+
+
+.project-image-button:hover .visual-biotempak .web-browser,
+.project-image-button:focus-visible .visual-biotempak .web-browser {
+  transform: rotate(0deg) translateY(-5px);
+}
+
+.deck-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 22px;
+  opacity: .9;
+}
+
+.deck-material {
+  position: relative;
+  overflow: hidden;
+}
+
+.deck-material::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: .45;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 12px,
+    #ffffff18 13px,
+    transparent 14px
+  );
+}
+
+.material-one {
+  background: #706c5b;
+  transform: translateY(20px);
+}
+
+.material-two {
+  background: #9b8c75;
+  transform: translateY(-8px);
+}
+
+.material-three {
+  background: #4d5146;
+  transform: translateY(35px);
+}
+
+.deck-copy {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 780px;
+  min-height: 275px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 32px;
+}
+
+.deck-copy > span {
+  font-size: 7px;
+  letter-spacing: 1.1px;
+  color: #d5dacd;
+}
+
+.deck-copy h3 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 5vw, 57px);
+  font-weight: 400;
+  line-height: .9;
+  letter-spacing: -1.5px;
+}
+
+.deck-copy h3 em {
+  color: var(--lime);
+}
+
+.deck-links {
+  display: flex;
+  gap: 25px;
+  font-size: 7px;
+  letter-spacing: .9px;
+  color: #d5dacd;
+}
+
+.visual-deckdepot .visual-stamp {
+  right: 24px;
+  bottom: 44px;
+  color: var(--lime);
+  transform: rotate(-6deg);
+}
+
+.visual-deckdepot .visual-placeholder {
+  color: #d5dacd;
+}
+
+.project-image-button:hover .visual-deckdepot .deck-material {
+  transform: translateY(0) scale(1.02);
+}
+
+.project-image-button:hover .visual-deckdepot .material-one {
+  transform: translateY(5px) scale(1.02);
+}
+
+.project-image-button:hover .visual-deckdepot .material-two {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.project-image-button:hover .visual-deckdepot .material-three {
+  transform: translateY(8px) scale(1.02);
+}
+.project-real-image + .visual-stamp,
+.project-real-image + .visual-stamp + .visual-placeholder {
+  display: none;
+}
 .project-hover-arrow { position: absolute; top: 20px; right: 20px; width: 44px; height: 44px; background: var(--cream); border-radius: 50%; display: grid; place-items: center; opacity: 0; transform: translate(-5px, 5px); transition: opacity 250ms, transform 250ms; }
 .project-image-button:hover .concept-window, .project-image-button:focus-visible .concept-window { transform: perspective(1000px) rotateY(0) rotateZ(0) translateY(-5px); }
 .project-image-button:hover .project-hover-arrow, .project-image-button:focus-visible .project-hover-arrow { opacity: 1; transform: translate(0); }
@@ -450,6 +786,51 @@ h2 em { color: var(--plum); }
   .project-modal .project-visual { padding: 30px 20px 48px; aspect-ratio: 1.25; }
   .project-modal .visual-stamp { font-size: 19px; }
   .modal-close { top: 7px; right: 7px; }
+  .web-browser {
+  max-width: 100%;
+}
+
+.biotempak-page {
+  min-height: 220px;
+  padding: 15px 16px 13px;
+}
+
+.biotempak-nav {
+  gap: 10px;
+  font-size: 5px;
+}
+
+.biotempak-nav strong {
+  font-size: 8px;
+}
+
+.biotempak-hero {
+  min-height: 150px;
+  gap: 12px;
+}
+
+.biotempak-hero h3 {
+  font-size: 29px;
+}
+
+.product-shape {
+  width: 72px;
+  height: 95px;
+}
+
+.deck-copy {
+  min-height: 215px;
+  padding: 22px 20px;
+}
+
+.deck-copy h3 {
+  font-size: 34px;
+}
+
+.deck-links {
+  gap: 12px;
+  font-size: 6px;
+}
 }
 
 @media (max-width: 390px) {

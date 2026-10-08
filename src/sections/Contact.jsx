@@ -17,13 +17,19 @@ export default function Contact({ onContact }) {
           </div>
           <p>No tiene que estar todo resuelto.<br />Una buena conversación puede ser el primer paso.</p>
           <div className="contact-actions">
-            <button className="primary-button" onClick={onContact}>HABLEMOS <Icon name="arrow" /></button>
-            {site.cv ? (
+            <a
+              className="primary-button"
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              HABLEMOS <Icon name="arrow" />
+            </a>
+                        {site.cv ? (
               <a className="cv-link" href={site.cv} download>DESCARGAR CV <Icon name="down" /></a>
             ) : (
               <div className="cv-pending">
                 <button className="cv-link" disabled aria-describedby="cv-status">DESCARGAR CV <Icon name="down" /></button>
-                <small id="cv-status">Documento pendiente de añadir</small>
               </div>
             )}
           </div>
